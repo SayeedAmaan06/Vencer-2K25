@@ -1,0 +1,534 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f5e1c5, #d2a679);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+body.contactbody {
+    background: linear-gradient(to bottom, #f5e1c5, #d2a679);
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #654321;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    color: #432d1b;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://source.unsplash.com/1600x900/?tajmahal') no-repeat center center/cover;
+    position: relative;
+    flex-direction: column;
+    padding-bottom: 120px;
+}
+
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.title {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.subtitle {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #f9b837;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.tagline {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: 9rem;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+}
+
+.tagline {
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    margin-top: -1rem;
+}
+
+.subtitle {
+    font-size: 4rem;
+}
+
+.image-title {
+    font-size: 6rem;
+    font-family: 'Cinzel Decorative', cursive;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.scroll-section {
+    height: 100vh;
+    background: #f5e1c5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.iconic-buildings img {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.justified-text {
+    text-align: justify;
+}
+
+.contact-section {
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.college-image {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.college-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.college-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.college-info h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.college-info p {
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.events-button {
+    display: block;
+    width: 200px;
+    margin: 40px auto;
+    padding: 15px 30px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.events-button:hover {
+    background-color: #555;
+}
+
+.website-button {
+    display: block;
+    width: 150px;
+    margin: 35px auto;
+    padding: 15px 30px;
+    background-color: #e99e3d;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.website-button:hover {
+    background-color: #e7a958;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer p {
+    margin: 10px 0;
+    color: #fff;
+}
+
+.footer a {
+    color: #e99e3d;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #e7a958;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.countdown-item {
+    flex: 1;
+    text-align: center;
+}
+
+.floating-images {
+    width: 100%;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.image-row {
+    display: inline-block;
+    white-space: nowrap;
+    animation: float 30s linear infinite;
+}
+
+.image-row img {
+    display: inline-block;
+    margin: 0 10px;
+    height: 180px; /* Increased height for larger images */
+    animation-duration: 30s; /* Ensures all images move at the same speed */
+}
+
+@keyframes float {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes float-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-800%); } /* Adjusted to move across the full width of 8 images */
+}
+
+@keyframes float-right {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(800%); } /* Adjusted to move across the full width of 8 images */
+}
+
+.float-left {
+    animation-name: float-left;
+    animation-duration: 30s;
+    animation-timing-function: linear; /* Ensures consistent speed */
+    animation-iteration-count: infinite;
+    margin-right: 10px; /* Added margin to prevent overlap */
+}
+
+.float-right {
+    animation-name: float-right;
+    animation-duration: 30s;
+    animation-timing-function: linear; /* Ensures consistent speed */
+    animation-iteration-count: infinite;
+    margin-left: 10px; /* Added margin to prevent overlap */
+}
+
+@media screen and (max-width: 768px) {
+    /* Navbar adjustments - consistent across all pages */
+    .navbar {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.95);
+        display: flex;
+        gap: 15px;
+        border-radius: 8px;
+        width: auto;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    /* Main title adjustments */
+    .title {
+        font-size: 5rem;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+        letter-spacing: 0.1em;
+        margin: 10px 0;
+    }
+
+    .subtitle {
+        font-size: 2.8rem;
+        margin-top: 15px;
+    }
+
+    /* Countdown adjustments */
+    .countdown-section {
+        padding: 20px 10px;
+        margin-top: 20px;
+    }
+
+    .countdown-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding: 0 15px;
+        line-height: 1.3;
+    }
+
+    .countdown {
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .countdown-item {
+        min-width: 75px;
+        padding: 12px 8px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+
+    /* Restore and adjust floating images for mobile */
+    .floating-images {
+        display: block;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    .image-row {
+        display: flex;
+        overflow: hidden;
+    }
+
+    .image-row img {
+        animation: float 30s linear infinite; /* Ensure all images move at the same speed */
+        margin-right: 10px; /* Prevent overlap */
+        max-width: 100%;
+        height: auto;
+        width: auto; /* Set a fixed width to make images boxier */
+        flex: 0 0 auto; /* Prevent images from overlapping */
+    }
+
+    .float-left, .float-right {
+        animation-duration: 30s; /* Ensure all images move at the same speed */
+        animation-timing-function: linear; /* Ensures consistent speed */
+    }
+
+    .image-row:nth-of-type(2) {
+        animation: float-right 30s linear infinite; /* Ensure second row moves to the right */
+    }
+
+    .image-row:nth-of-type(2) img {
+        animation: float-right 30s linear infinite; /* Ensure second row images move to the right */
+    }
+
+    .contact-section {
+        flex-direction: column;
+        padding: 100px 15px 40px 15px;
+        gap: 30px;
+    }
+
+    .college-image {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .college-info {
+        width: 100%;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .college-info h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin: 15px 0;
+    }
+
+    .justified-text {
+        font-size: 16px !important;
+        line-height: 1.6;
+        margin: 15px 0;
+        text-align: justify;
+    }
+
+    .website-button, .events-button {
+        width: 80%;
+        max-width: 200px;
+        margin: 20px auto;
+        padding: 12px 20px;
+        display: block;
+    }
+
+    .main {
+        padding-top: 300px; /* Increased padding significantly for better fit below navbar */
+    }
+
+    .image-row img {
+        height: 220px; /* Increased height for mobile view */
+        width: auto; /* Maintain aspect ratio */
+        margin: 0 5px;
+    }
+
+    .floating-images {
+        overflow: hidden;
+    }
+}
+
+/* Small phone adjustments */
+@media screen and (max-width: 360px) {
+    .title {
+        font-size: 4.2rem;
+    }
+
+    .tagline {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 2.3rem;
+    }
+
+    .countdown-title {
+        font-size: 1.5rem;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 10px 5px;
+    }
+
+    .image-row img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .title {
+        font-size: 7rem;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 3.5rem;
+    }
+
+    .countdown-title {
+        font-size: 2.2rem;
+    }
+
+    .countdown-item {
+        min-width: 100px;
+    }
+
+    .image-row img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .contact-section {
+        padding: 120px 40px 60px 40px;
+        gap: 40px;
+    }
+
+    .college-info h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+    .contact-section {
+        align-items: center; /* Align items in the center for desktop view */
+    }
+
+    .college-image {
+        margin-top: 0; /* Remove any top margin to align with title */
+    }
+
+    .college-info {
+        margin-top: 0; /* Remove any top margin to align with image */
+    }
+
+    .float-left {
+        animation-duration: 150s; /* Further reduced animation speed for desktop view */
+    }
+    .float-right {
+        animation-duration: 150s; /* Further reduced animation speed for desktop view */
+    }
+}

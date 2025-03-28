@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333333">
+    <title>VENCER 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('images/background.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .main {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .title, .subtitle, .tagline {
+            opacity: 0;
+            transform: translateY(50px);
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        .title {
+            font-size: 9rem;
+            animation: bottomUp 1.0s ease-out forwards;
+        }
+
+        .tagline {
+            font-size: 2rem;
+            animation: bottomUp 1.0s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .subtitle {
+            font-size: 4rem;
+            animation: bottomUp 1.0s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        .logo-container {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: bottomUp 1.0s ease-out forwards;
+        }
+
+        .logo {
+            max-width: 800px;
+            height: auto;
+        }
+
+        body > .navbar {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 2.0s;
+        }
+
+        .content-section {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: rgba(255, 247, 178, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        .floating-images {
+            padding: 200px 10px;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: flex-start;
+            gap: 35px;
+            margin: 60px 0;
+            position: relative;
+            width: 300%;
+            left: -100%;
+            animation: scroll 30s linear infinite;
+        }
+
+        .image-row:nth-child(2) {
+            animation: scrollReverse 30s linear infinite;
+        }
+
+        .float-left, .float-right {
+            width: 325px;
+            height: 225px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes bottomUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+        }
+
+        @keyframes scrollReverse {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(33.333%); }
+        }
+
+        .countdown-section {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: -20px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 2s forwards;
+        }
+
+        .countdown-title {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .countdown-item {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 120px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'Cinzel Decorative', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-label {
+            color: #f1cf52;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-item:hover {
+            animation: pulse 1s infinite;
+            border-color:#fff;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .countdown {
+                flex-direction: column;
+            }
+            .title {
+                font-size: 5rem;
+            }
+        }
+        
+        .image-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="main">
+        <div class="title">VENCER</div>
+        <div class="tagline">SPIRITUL INGINERILOR</div>
+        <div class="subtitle">2025</div>
+        
+        <div class="countdown-section">
+            <h2 class="countdown-title">Time Until VENCER</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div id="days" class="countdown-number">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="hours" class="countdown-number">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="minutes" class="countdown-number">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="seconds" class="countdown-number">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2 class="image-title">PREVIOUS  YEAR  HIGHLIGHTS</h2>
+        <div class="floating-images">
+            <div class="image-row">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.47_f3de384d.jpg" alt="Tech">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.48_8ab412c9.jpg" alt="Innovation">
+                <img class="float-left" src="images/pre/IMG_6171.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_0ef1ce69.jpg" alt="Tech">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_61b34aac.jpg" alt="Innovation">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_97f125dd.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.50_f1bdb45d.jpg" alt="Tech">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_2e9e1ee3.jpg" alt="Innovation">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_9ca29f47.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6284.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6338.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6347.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6349.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6350.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6352.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6353.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6354.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6360.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6375.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6390.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6488.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6489.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6780.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/IMG_6788.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.17_9cf37022.jpg" alt="Future">
+                <img class="float-left" src="images/Firefly.png" alt="Digital">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.18_f3d8e119.jpg" alt="Engineering">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.47_f3de384d.jpg" alt="Tech">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.48_8ab412c9.jpg" alt="Innovation">
+                <img class="float-left" src="images/Firefly.png" alt="Firefly">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_0ef1ce69.jpg" alt="Tech">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_61b34aac.jpg" alt="Innovation">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_97f125dd.jpg" alt="Firefly">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.50_f1bdb45d.jpg" alt="Tech">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_2e9e1ee3.jpg" alt="Innovation">
+                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_9ca29f47.jpg" alt="Firefly">
+            </div>
+            <div class="image-row">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
+                <img class="float-right" src="images/pre/IMG_6604.jpg" alt="Tech">
+                <img class="float-right" src="images/pre/IMG_6614.jpg" alt="Innovation">
+                <img class="float-right" src="images/pre/IMG_6636.jpg" alt="Firefly">
+                <img class="float-right" src="images/pre/IMG_6641.jpg" alt="Firefly">
+                <img class="float-right" src="images/pre/IMG_6687.jpg" alt="Tech">
+                <img class="float-right" src="images/pre/IMG_6697.jpg" alt="Innovation">
+                <img class="float-right" src="images/pre/IMG_6780.jpg" alt="Firefly">
+                <img class="float-right" src="images/pre/IMG_6788.jpg" alt="Firefly">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.17_9cf37022.jpg" alt="Future">
+                <img class="float-right" src="images/Firefly.png" alt="Digital">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.18_f3d8e119.jpg" alt="Engineering">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.47_f3de384d.jpg" alt="Tech">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.48_8ab412c9.jpg" alt="Innovation">
+                <img class="float-right" src="images/Firefly.png" alt="Firefly">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_0ef1ce69.jpg" alt="Tech">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_61b34aac.jpg" alt="Innovation">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_97f125dd.jpg" alt="Firefly">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.50_f1bdb45d.jpg" alt="Tech">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_2e9e1ee3.jpg" alt="Innovation">
+                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_9ca29f47.jpg" alt="Firefly">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 VENCER. All rights reserved.</p>
+            <p>Angadi Institute Of Technology & Management, Belagavi</p>
+            <p>Contact: <a href="mailto:vencer.aitm@gmail.com">vencer.aitm@gmail.com</a></p>
+        </div>
+    </footer>
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('2025-04-08T09:00:00+05:30').getTime();
+            
+            function update() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.querySelector('.countdown-title').textContent = 'VENCER 2025 IS HERE!';
+                    document.querySelectorAll('.countdown-number').forEach(el => el.textContent = '00');
+                }
+            }
+
+            update();
+            const timer = setInterval(update, 1000);
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>
