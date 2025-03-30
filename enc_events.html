@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E&C EVENTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Z.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.199);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+            backdrop-filter: blur(3px);
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 10px;
+            }
+            .navbar a {
+                margin: 5px 10px;
+                font-size: 14px;
+            }
+            .main-container {
+                padding-top: 80px;
+            }
+            .hero-content {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .curved-scroll {
+                width: 100%;
+                border-left: none;
+                background: rgba(0, 0, 0, 0.5);
+                height: calc(100vh - 80px);
+                padding: 15px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .event-card {
+                margin: 15px 0;
+                padding: 20px;
+                transform: none !important;
+                background: rgba(20, 20, 20, 0.95);
+                border: 1px solid rgba(212, 175, 55, 0.4);
+            }
+            .event-card:hover {
+                transform: none !important;
+                border-color: #d4af37;
+                box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            }
+            .event-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+                word-wrap: break-word;
+            }
+            .event-card p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 15px;
+                word-wrap: break-word;
+            }
+            .event-card a {
+                padding: 15px;
+                display: block;
+                border-radius: 8px;
+                background: rgba(212, 175, 55, 0.1);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 10px 5px;
+            }
+            .navbar a {
+                margin: 3px 8px;
+                font-size: 12px;
+            }
+            .main-container {
+                padding-top: 70px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .curved-scroll {
+                padding: 10px;
+            }
+            .event-card {
+                margin: 10px 5px;
+                padding: 12px;
+            }
+            .event-card h3 {
+                font-size: 1.2rem;
+            }
+            .event-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 10px;
+            }
+            .navbar a {
+                margin: 5px 10px;
+                font-size: 14px;
+            }
+            .main-container {
+                padding-top: 80px;
+                justify-content: center;
+            }
+            .hero-content {
+                transform: translate(-50%, -50%);
+                padding: 0 20px;
+                width: 90%;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .curved-scroll {
+                width: 100%;
+                border-left: none;
+                background: rgba(0, 0, 0, 0.5);
+                height: calc(100vh - 80px);
+                padding: 15px;
+                margin: 0 auto;
+            }
+            .event-card {
+                margin: 15px auto;
+                padding: 15px;
+                transform: none !important;
+                max-width: 95%;
+            }
+            .event-card h3 {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+                word-wrap: break-word;
+            }
+            .event-card p {
+                font-size: 1rem;
+                line-height: 1.4;
+                word-wrap: break-word;
+            }
+            .event-card a {
+                padding: 12px;
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 10px 5px;
+            }
+            .navbar a {
+                margin: 3px 8px;
+                font-size: 12px;
+            }
+            .main-container {
+                padding-top: 70px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .curved-scroll {
+                padding: 10px;
+            }
+            .event-card {
+                margin: 10px auto;
+                padding: 12px;
+                width: 90%;
+            }
+            .event-card h3 {
+                font-size: 1.2rem;
+            }
+            .event-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(calc(-50% - 4cm), -50%);
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3.5rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .curved-scroll {
+            width: 400px;
+            height: calc(100vh - 100px);
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .event-card {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .event-card:hover {
+            transform: translateX(-10px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        .event-card h3 {
+            color: #d4af37;
+            margin: 0 0 10px 0;
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        .event-card p {
+            color: #fff;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .event-card a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .event-card a:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b4941f;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="main-container">
+        <div class="hero-content">
+            <h1 class="hero-title">E&C EVENTS</h1>
+            <p class="hero-subtitle">Explore the world of Electronics & Communication through our innovative competitions.</p>
+        </div>
+        <div class="curved-scroll">
+            <div class="event-card">
+                <a href="EC1.html">
+                    <h3>CIRCUIT CASCADERS</h3>
+                    <p>Project Exibition</p>
+                    <p>(Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC2.html">
+                    <h3>CHAT TRAVELLER</h3>
+                    <p>PANI PURI</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC3.html">
+                    <h3>WHISPERS OF THE VAULT</h3>
+                    <p>Treasure Hunt</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC4.html">
+                    <h3>SPIN TO WIN</h3>
+                    <p>Spin the wheel</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC5.html">
+                    <h3>ARCHITECT GAMBIT</h3>
+                    <p>Chess</p>
+                    <p>Non-Tech</p>
+                
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC6.html">
+                    <h3>VISUAL CHRONICAL</h3>
+                    <p>Photography & Reel making</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC7.html">
+                    <h3>HIT & HYPE</h3>
+                    <p>Dartboard Game</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="EC8.html">
+                    <h3>BIRD IN TROUBLE</h3>
+                    <p>Flappy Tappy</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+
+        
+        </div>
+    </div>
+</body>
+</html>

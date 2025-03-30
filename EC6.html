@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISUAL CHRONICAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Z.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border: 2px solid #d4af37;
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            color: #fff;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .register-button:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .register-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">VISUAL CHRONICAL</h1>
+        </div>
+
+        <img src="images/EC6.jpg" alt="Vision Chronical Event Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p class="section-content">Registration Fees: 50 Rupees [ photography ] & 150 rupees [ reel making]</p>
+            <p class="section-content">Date: 8th April 2025</p>
+        </div>
+        <div class="event-section">
+            <h2 class="section-title">RULES AND REGULATIONS FOR PHOTOGRAPHY</h2>
+            <ul class="rules-list">
+                <li>Editing: Basic edits allowed (no AI or heavy manipulation).</li>
+                <li>Format: JPEG/PNG</li>
+                <li>Name file as: YourName_College.jpg</li>
+                <li>Judging: Based on creativity, theme relevance, composition & impact.</li>
+                <li>Submission: Submit a hardcopy of the photo on photo paper to 
+                    the event coordinator. Also submit a softcopy via WhatsApp to the event coordinator.</li>
+                <li>Plagiarism: Disqualification.</li>
+                <li>Judge’s decision will be final.</li>
+                <li>Team size – Solo.</li>
+            </ul>
+        </div>
+        <div class="event-section">
+            <h2 class="section-title">RULES AND REGULATIONS FOR REEL MAKING</h2>
+            <ul class="rules-list">
+                <li>Team size – min-1 and max-4.</li>
+                <li>Theme: Moments of VENCER (Capture the fest’s vibe, events, fun, or emotions).</li>
+                <li>Duration: Maximum length of the video should be under 30 seconds.</li>
+                <li>Format: MP4/MOV | Name file as: YourName_College.mp4</li>
+                <li>Judging: Based on theme relevance and editing skills.</li>
+                <li>Submission: Submit the video via WhatsApp to the event coordinator.</li>
+                <li>Plagiarism: Disqualification.</li>
+                <li>Judges’ decision will be final.</li>
+            </ul>
+        </div>
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Mr. Shreekrishna J</h3>
+                    <p>📞 +91 7975011137</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Mr. Bharatesh Sankar</h3>
+                    <p>📞 +91 8792654104</p>
+                </div>
+            </div>
+        </div>
+        <div class="event-section">
+            <h2 class="section-title">Prize Pool</h2>
+            <p class="section-content">
+                🏆 Exciting Prizes + Certificates<br>
+            </p>
+        </div>
+        <div class="register-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSQR8rhOHfs1tvgRh6Mqh9qh7ZcVJBYU_JKiOHtT-VdcARRg/viewform" target="_blank" class="register-button">Register Now</a>
+            <a href="enc_events.html" class="register-button">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

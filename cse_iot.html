@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWARA LAHARI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Tajmahal.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border: 2px solid #d4af37;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeInScale 0.8s ease 0.3s forwards;
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .event-section:nth-child(3) { animation-delay: 0.4s; }
+        .event-section:nth-child(4) { animation-delay: 0.6s; }
+        .event-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            color: #fff;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .register-button:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .register-container {
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .back-to-events {
+            display: inline-block;
+            margin-top: 20px;
+            color: #d4af37;
+            text-decoration: none;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: all 0.3s;
+        }
+
+        .back-to-events:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">SWARA LAHARI</h1>
+            <p class="section-content">"Singing"</p>
+        </div>
+
+        <img src="images/SLS.jpg" alt="Game Development Challenge Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p class="section-content">Welcome to the musical extravaganza, where talent meets rhythm and passion harmonizes
+                                       with melody! Swara Lahari not just a singing competition; it's a journeythrough the
+                                       soulful realms of music, where voices transcend boundaries and emotionsfind expression
+                                       in every note. </p>
+            <p class="section-content">Solo: 100/-</p>  
+            <p class="section-content">Group: 300/-</p>
+                                
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>Performance can be done in solo or group (min 2/max5).</li>
+                <li>The duration for the performance in 4-6 minutes.</li>
+                <li>Songs can be performed in any language.</li>
+                <li>Participants should accompany their own instruments except Mics, jacks etc
+                    provided.</li>
+                <li>The duration for the performance in 4-6 minutes.</li>
+                <li>Songs can be performed in any language</li>
+                <li>Participants should accompany their own instruments except Mics, jacks etc
+                    provided.</li>
+                <li>Participants must provide any necessary technical equipment or props required for
+                    their performance.</li> 
+                <li>The decision of the judges if final and binding.</li>
+                <li>Organizers hold the right to modify the schedule if required.</li>   
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Judging Criteria</h2>
+            <ul class="rules-list">
+                <li> Judging criteria includes vocal techniques, instruments technique/co-ordination.</li>
+                <li>Musicality and Expression ,stage performace.</li>  
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Prize</h2>
+            <p class="section-content">
+                🏆 Exclusive Prize + Certificates<br>
+            </p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Ms.Rohini Wali</h3>
+                    <p>📞 +91 6363379601</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Ms.Soujanya Jain</h3>
+                    <p>📞 +91 8792123028</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-container">
+            <a href="https://forms.gle/Tg1GZ8gSc6L6zzWC6" class="register-button">Register Now</a>
+            <br>
+            <a href="events.html" class="back-to-events">← Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

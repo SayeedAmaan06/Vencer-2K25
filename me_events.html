@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ME EVENTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/ME.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.199);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+            backdrop-filter: blur(3px);
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 10px;
+            }
+            .navbar a {
+                margin: 5px 10px;
+                font-size: 14px;
+            }
+            .main-container {
+                padding-top: 60px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-content {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .curved-scroll {
+                width: 100%;
+                border-left: none;
+                background: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 10px 5px;
+            }
+            .navbar a {
+                margin: 3px 8px;
+                font-size: 12px;
+            }
+            body {
+                overflow-y: auto;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .event-card {
+                padding: 15px;
+            }
+            .event-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(calc(-50% - 4cm), -50%);
+            text-align: center;
+            z-index: 2;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3.5rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .curved-scroll {
+            width: 400px;
+            height: calc(100vh - 100px);
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border-left: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .curved-scroll::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .curved-scroll::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .curved-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #d4af37, #f1c40f);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .curved-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #f1c40f, #d4af37);
+        }
+
+        .event-card {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #d4af37;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .event-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .event-card h3 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .event-card p {
+            color: #fff;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="main-container">
+        <div class="hero-content">
+            <h1 class="hero-title">ME EVENTS</h1>
+            <p class="hero-subtitle">Explore innovative mechanical engineering challenges and competitions.</p>
+        </div>
+
+        <div class="curved-scroll">
+            <div class="event-card">
+                <a href="me1.html">
+                    <h3>ENGINEERING INSIGHTS</h3>
+                    <p>Technical Paper presentation</p>
+                    <p>(Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="me2.html">
+                    <h3>SCHOLARLY POSTERS</h3>
+                    <p>Poster Presentation</p>
+                    <p>(Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="me3.html">
+                    <h3>DIGITAL PROTOTYPING</h3>
+                    <p>3D Modeling using Solid Edge</p>
+                    <p>(Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="me4.html">
+                    <h3>Hydro Launch Spectacle</h3>
+                    <p>(Tech)</p>
+                </a>
+            </div>
+
+            <div class="event-card">
+                <a href="me5.html">
+                    <h3>QUICK PITCH CRICKET</h3>
+                    <p>Six yard Mixed gender circle cricket.(Outdoor).</p>
+                    <p>(Non-Tech)</p>
+                </a>
+            </div>
+            <!--<div class="event-card">
+                <a href="me6.html">
+                    <h3>CODE CRACKER CHALLENGE</h3>
+                    <p>Design and build a robot to complete a series of tasks.</p>
+                    <p>(Tech)</p>
+                </a>
+            </div>
+            -->
+        </div>
+    </div>
+</body>
+</html>

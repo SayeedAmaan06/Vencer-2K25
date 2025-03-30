@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRIDLOCK QUEST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/cv.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.199);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #fff;
+        }
+
+        .rules-list li {
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+        }
+
+        .coordinator-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .coordinator {
+            text-align: center;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .register-button:hover {
+            background: #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">GRIDLOCK QUEST</h1>
+            <p class="section-content">Round to Quest.</p>
+        </div>
+
+        <img src="images/CV1.jpg" alt="Bridge Design Challenge Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p class="section-content">"Round to Stuck" describes a situation where a game, especially one with round-based
+                                        gameplay (like a game with multiple stages), where players have to clear each rounds to unlock
+                                        next round.</p>
+            <p class="section-content">Registration fees: 300 /-per team</p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>Eligibility: Open to all engineering students; participants must carry their college ID.</li>
+                <li>Team Composition: Each team must have 4 members (2 boys & 2 girls).</li>
+                <li>Game Format: The event consists of multiple rounds.</li>
+                <li>Materials: All required materials will be provided by the organizing team.</li>
+                <li>Progression: Teams must clear each round within the stipulated time to advance to the next.</li>
+                <li>Winning Criteria: The team that completes all rounds within the time limit wins.</li>
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Prize Pool</h2>
+            <p class="section-content">
+                🏆 Exciting Prizes + Certificates<br>
+            </p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Mr.Fayaazuddin R.N</h3>
+                    <p>📞 +91 8277270399</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Mr. Balraj S.G</h3>
+                    <p>📞 +91 9964189035</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="https://forms.gle/BCPZwMFkbeWuSfzU8" target="_blank" class="register-button">Register Now</a>
+            <a href="civil_events.html" class="register-button">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

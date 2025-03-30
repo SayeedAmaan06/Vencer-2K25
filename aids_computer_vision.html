@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Battle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/AIDS.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.199);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            color: #fff;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+        }
+
+        .coordinator-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .coordinator {
+            text-align: center;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .register-button:hover {
+            background: #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">Byte Battle</h1>
+            <p class="section-content">Debate like a Machine</p>
+        </div>
+
+        <img src="images/BB.jpg" alt="Computer Vision Contest Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p class="section-content">Team size: 4 members per team</p>
+            <p class="section-content">Fees: Rs 50 per head (Rs 200 per team)</p>
+            <p class="section-content">Event Overview: The competition consists of two rounds, Tag Team Rule and System Glitch.</p> 
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>1.	Teams must follow instructions given before each round.</li>
+                <li>2.	Use of external help or devices is strictly prohibited.</li>
+                <li>3.	Judges’s decisions are final.</li>
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">ROUNDS</h2>
+            <h3 class="section-title">Round 1: TAG TECH RULE</h3>
+            <ul class="rules-list">
+                <li>Speakers can be stopped at any point of time and another teammate has 10sec to think and start from the same sentence</li>
+                <li>Forbidden word challenge: One word is banned, if they use that word , the team loses five point.</li>
+
+            <h3 class="section-title">Round 2: SYSTEM GLITCH</h3>
+                <li>Moderator forces a speaker to swap with the opposite team and he needs to speak for 30-45sec.</li>
+                <li>Wildcard question : The opposing team can interrupt the other team with one question and they will have to answer it within 20sec.</li>
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">JUDGEING CRITERIA</h2>
+            <ul class="rules-list">
+                <h2 class="section-title">ROUND-1(50-Points)</h2>
+                <p class="section-content">
+                    •	Smooth Speaking & Teamwork – 20 points.
+                    •	Good Arguments & Ideas – 20 points.
+                    •	Confidence & Audience Engagement – 10 points.
+                    •	Forbidden Word Used – (-5 points each time).
+
+                <h2 class="section-title">ROUND-2(50-Points)</h2>  
+                <p class="section-content">
+                    •	Quick Thinking & Handling Challenges – 20 points.
+                    •	Strong Counterarguments – 15 points.
+                    •	Clear & Relevant Points – 10 points.
+                    •	Good Speaking & Team Coordination – 5 points.
+                </p>  
+                </p>
+            </ul>
+        </div>
+
+
+        <div class="event-section">
+            <h2 class="section-title">Prize</h2>
+            <p class="section-content"> 
+                🏆 Team with the highest score wins! (Tiebreaker: One last debate question)<br>
+                🏆 Exclusive Prizes + Certificates<br>
+            </p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Ms. Megha G.</h3>
+                    <p>📞 +91 9980607762</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Ms. Simran S.</h3>
+                    <p>📞 +91 8123524014</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="https://forms.gle/pFgQnyvrQGpZZXfY6" target="_blank" class="register-button">Register Now</a>
+            <a href="ai_ds_events.html" class="register-button">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

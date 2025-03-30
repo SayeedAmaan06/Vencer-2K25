@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NET NINJAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Z.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: '•';
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .register-button:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .register-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">NET NINJAS</h1>
+            <p class="section-content">Throw BallS</p>
+        </div>
+
+        <img src="images/NN.jpg" alt="Blockchain Event Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p>Throwball is a non-contact team sport played between two teams.The game
+               requires quick reflexes, teamwork, and strategic play. The objective is 
+               to throw the ball over the net and land it in the opponent’s court while 
+               preventing the opposing team from doing the same.</p>
+            
+            <p>Team size: 9 players(5 Boys, 4 Girls)</p>
+            <p>Entry Fees: 400/-</p>
+
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules</h2>
+            <ul>
+                <li>1. Team Composition: Each team consists of 5 boys and 4 girls (Total: 9 players).</li>
+                <li>2. A maximum of 9 players can be on the court at a time.</li>
+                <li>3. Scoring System: The game is played for 1 set of 25 points.</li>
+                <li>4. A team must win by at least 2 points.</li>
+                <li>5. Starting the Game: The game starts with a toss to decide which team serves first.</li>
+                <li>6. The server must stand behind the baseline and throw the ball over the net.</li>
+                <li>7. Playing the Ball: Players must catch and throw the ball within 3 seconds.</li>
+                <li>8. The ball must be thrown with both hands and should not be spun or held too long.</li>
+                <li>9. A player cannot run while holding the ball.</li>
+                <li>10. Ball Crossing the Net: The ball must cross the net without touching it.</li>
+                <li>11. If the ball touches the net and goes over, it is a fault.</li>
+                <li>12. A ball that lands outside the court is out.</li>
+                <li>13. Player Rotation: After winning a rally, the team rotates clockwise before serving.</li>
+                <li>14. The same player cannot serve consecutively in a set.</li>
+                <li>15. Faults and Violations: A fault is committed if a player holds the ball for more than 3 seconds.</li>
+                <li>16. The ball is caught or thrown with one hand (except during service).</li>
+                <li>17. A player steps on or over the boundary lines while throwing.</li>
+                <li>18. The ball is not thrown cleanly (e.g., spinning, underarm throw).</li>
+                <li>19. More than one player touches the ball before throwing.</li>
+                <li>20. Substitutions & Timeouts: Each team is allowed 3 substitutions per set.</li>
+                <li>21. Each team can take 1 timeout (30 seconds) per set.</li>
+                <li>22. Winning the Match: The team that reaches 25 points first, with a 2-point lead, wins.</li>
+                <li>23. If the score reaches 24-24, the game continues until a team leads by 2 points.</li>
+                <li>24. Fair Play & Conduct: No physical contact is allowed.</li>
+                <li>25. Respect the referees' decisions.</li>
+                <li>26. Unsportsmanlike conduct (e.g., arguing, delaying the game) may result in warnings or disqualification.</li>
+            </ul>
+        </div>
+
+
+        <div class="event-section">
+            <h2 class="section-title">Prize Pool</h2>
+            <ul>
+                <li>🏆 Exciting Prizes + Certificates<br></li>
+            </ul>
+        </div>
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Mr.Amogh B</h3>
+                    <p>📞 +91 7676330573</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Mr.Siddaramaiah T</h3>
+                    <p>📞 +91 – 8971359437</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-container">
+            <a href="https://forms.gle/h6eVzSAGcabSzs4C7" class="register-button" target="_blank">Register Now</a>
+            <a href="cse_events.html" class="register-button">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

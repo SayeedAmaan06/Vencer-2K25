@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STONESTONE SMASHER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Tajmahal.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #d4af37;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: '•';
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+        }
+
+        .register-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 15px;
+            background: #d4af37;
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .register-btn:hover {
+            background: #b4941f;
+            transform: scale(1.05);
+        }
+
+        .coordinators {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .coordinator {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .back-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background: transparent;
+            color: #d4af37;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="container">
+        <div class="event-header">
+            <h1 class="event-title">STONE SMASHER</h1>
+        </div>
+
+        <div class="event-poster">
+            <img src="images/LRI.jpg" alt="Cloud Computing Event Poster">
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <div class="section-content">
+                <p>Stone Smash, also known as Seven Stones, is a traditional Indian game that
+                   involves two teams. It’s a fun, energetic game played with a ball and a stack of
+                   stones.</p>
+                
+                <p>Team size:6 players per team.</p>
+                <p>Fees:100/- per team</p>
+            </div>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules</h2>
+            <div class="section-content">
+                <ul>
+                <li>Knocking Down the Stack: The attacking team throws the ball to knock down the stack, then attempts to rebuild
+                    it while the defending team tries to hit them with the ball.</li>
+                <li>Rebuilding the Stack: Attacking players must dodge the ball while restoring the 7 stones to their original position.</li>
+                <li>Defending Team’s Role: Defenders aim to eliminate attackers by hitting them with the ball; hit players are out 
+                    and must leave the field.</li>
+                <li>Winning the Game: The attacking team wins if they rebuild the stack without getting hit, while the defending team wins if
+                    they eliminate all attackers.</li>
+                <li>Rotation: After each round, teams switch roles, continuing until a set number of rounds are completed or one team is fully eliminated.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="event-section">
+            <h2 class="section-title">Prizes</h2>
+            <div class="section-content">
+                <p>🏆 Exclusive Prises + Certificate</p>
+            </div>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Coordinators</h2>
+            <div class="coordinators">
+                <div class="coordinator">
+                    <h3>Ms.Tejashwini Khokale</h3>
+                    <p>📞 +91 7619667658</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Ms.Poorvi Belligeri</h3>
+                    <p>📞 +91 9741773086</p>
+                </div>
+            </div>
+        </div>
+
+
+        <a href="https://forms.gle/YourCloudComputingFormLink" class="register-btn" target="_blank">Register Now</a>
+        <a href="cse_events.html" class="back-btn">Back to Events</a>
+    </div>
+</body>
+</html>

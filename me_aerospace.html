@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineerning Insights</li></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/me_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.199);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
+            backdrop-filter: blur(3px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            color: #fff;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+        }
+
+        .register-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .register-button:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-to-events {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .back-to-events:hover {
+            color: #fff;
+        }
+
+        .coordinator-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .coordinator {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">Engineering Insights</h1>
+            <p class="section-content">Technical Paper Presentation</p>
+        </div>
+
+        <img src="images/aerospace.jpg" alt="Aerospace Design Challenge Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event theme</h2>
+            <p class="section-content">
+                <li>1.	Mechanical Innovation for Good Health and Well Being</li>	
+                <li>2.	Sustainable Transportation and Mobility</li>
+                <li>3.	Climate Action & Environmental   Sustainability</li>
+               	
+
+            </p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>Teams of maximum 2 members</li>
+                <li>Duration: 5+1 Minitues</li>
+                <li>Entry fee Rs 100/- per team</li>
+                <li>Carry Hard copy & Soft copy of Technical presentation</li>
+                <li>Decision of the judges/committee will be final</li>
+                
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Prize Pool</h2>
+            <p class="section-content">
+                🏆 First Prize: ₹30,000 + Certificates<br>
+                🥈 Second Prize: ₹20,000 + Certificates<br>
+                🥉 Third Prize: ₹10,000 + Certificates<br>
+                🎖️ Innovation Award: ₹5,000 + Certificate
+            </p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Aditya Kumar</h3>
+                    <p>📞 +91 9876543220</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Sneha Reddy</h3>
+                    <p>📞 +91 9876543221</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Important Details</h2>
+            <p class="section-content">
+                📅 Date: April 20-22, 2025<br>
+                ⏰ Time: Starts at 10:00 AM<br>
+                📍 Venue: Aerospace Lab, Block D<br>
+                💻 Requirements: Teams must have access to required design software
+            </p>
+        </div>
+
+        <div class="register-container">
+            <a href="https://forms.gle/AnBZNw8sGnoH7XicA" class="register-button">Register Now</a>
+            <br>
+            <a href="me_events.html" class="back-to-events">← Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

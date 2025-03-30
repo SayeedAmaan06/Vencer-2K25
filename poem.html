@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poem - VENCER 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)),
+                        url('images/vencer_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            color: #d4af37;
+        }
+
+        .poem-container {
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .poem-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .poem-line {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.6rem;
+            color: #d4af37;
+            margin: 15px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .poem-line:nth-child(1) { animation: poemFadeIn 0.8s ease 0.2s forwards; }
+        .poem-line:nth-child(2) { animation: poemFadeIn 0.8s ease 0.4s forwards; }
+        .poem-line:nth-child(3) { animation: poemFadeIn 0.8s ease 0.6s forwards; }
+        .poem-line:nth-child(4) { animation: poemFadeIn 0.8s ease 0.8s forwards; }
+
+        @keyframes poemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="events.html">EVENTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="poem-container">
+        <h1 class="poem-title">The Spirit of VENCER</h1>
+        <div class="poem-line">In halls of wisdom, where dreams take flight,</div>
+        <div class="poem-line">VENCER rises, a beacon of light.</div>
+        <div class="poem-line">Innovation flows through every mind,</div>
+        <div class="poem-line">Leaving boundaries far behind.</div>
+    </div>
+</body>
+</html>

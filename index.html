@@ -2,135 +2,172 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333333">
-    <title>VENCER 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url('images/background.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    body, html {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
 
-        .main {
-            height: 100vh;
+    .scroll-section,
+    .description-section,
+    .floating-events-window,
+    .event-photos-modal,
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .poster-gallery {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .poster-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    @media screen and (max-width: 768px) {
+        .poster-gallery,
+        .poster-container {
+            overflow-x: hidden;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(33, 25, 15, 0.85);
+            padding: 10px;
             display: flex;
+            justify-content: space-between;
+            width: 100%;
+            border-radius: 0;
+            transform: none;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-links {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(33, 25, 15, 0.9), rgba(66, 50, 30, 0.95));
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            padding: 80px 20px;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: -5px 0 15px rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(8px);
+            border-left: 1px solid rgba(212, 175, 55, 0.4);
         }
 
-        .title, .subtitle, .tagline {
-            opacity: 0;
-            transform: translateY(50px);
-            font-family: 'Cinzel Decorative', cursive;
-        }
-
-        .title {
-            font-size: 9rem;
-            animation: bottomUp 1.0s ease-out forwards;
-        }
-
-        .tagline {
-            font-size: 2rem;
-            animation: bottomUp 1.0s ease-out forwards;
-            animation-delay: 1s;
+animation for the         .title {
+            font-size: 5.5rem;
         }
 
         .subtitle {
+            font-size: 2rem;
+        }
+
+        .gallery-section {
+            padding: 30px 15px;
+        }
+
+        .gallery-title {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .title {
             font-size: 4rem;
-            animation: bottomUp 1.0s ease-out forwards;
-            animation-delay: 2s;
         }
 
-        .logo-container {
+        .subtitle {
+            font-size: 1.5rem;
+        }
+
+        .gallery-section {
+            padding: 20px 10px;
+        }
+
+        .gallery-title {
+            font-size: 1.8rem;
+        }
+    }
+
+        .title, .subtitle {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .title {
+            animation: none;
+        }
+
+        .subtitle {
+            animation: none;
+        }
+
+        .navbar {
             opacity: 0;
-            transform: translateY(50px);
-            animation: bottomUp 1.0s ease-out forwards;
-        }
-
-        .logo {
-            max-width: 800px;
-            height: auto;
-        }
-
-        body > .navbar {
-            opacity: 0;
-            animation: fadeIn 1s ease-out forwards;
+            animation: navbarEntrance 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
             animation-delay: 2.0s;
         }
-
-        .content-section {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-            background-color: rgba(255, 247, 178, 0.6);
-            backdrop-filter: blur(3px);
+        
+        @keyframes navbarEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            70% {
+                opacity: 1;
+                transform: translateY(5px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
-
-        .floating-images {
-            padding: 200px 10px;
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .image-row {
-            display: flex;
-            justify-content: flex-start;
-            gap: 35px;
-            margin: 60px 0;
-            position: relative;
-            width: 300%;
-            left: -100%;
-            animation: scroll 30s linear infinite;
-        }
-
-        .image-row:nth-child(2) {
-            animation: scrollReverse 30s linear infinite;
-        }
-
-        .float-left, .float-right {
-            width: 325px;
-            height: 225px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer p {
-            margin: 10px 0;
-            color: #ccc;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+        
+        @media (max-width: 768px) {
+            @keyframes navbarEntrance {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px) scale(0.9);
+                }
+                70% {
+                    opacity: 1;
+                    transform: translateY(5px) scale(1.02);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+            
+            .navbar {
+                animation: navbarEntrance 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+                animation-delay: 1.5s;
+                transform: none;
+            }
         }
 
         @keyframes bottomUp {
@@ -145,230 +182,1472 @@
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.333%); }
+        .gallery-section {
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin-top: 50px;
         }
 
-        @keyframes scrollReverse {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(33.333%); }
-        }
-
-        .countdown-section {
+        .gallery-title {
             text-align: center;
-            padding: 30px 0;
-            margin-top: -20px;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease-out 2s forwards;
-        }
-
-        .countdown-title {
             font-family: 'Cinzel Decorative', cursive;
-            color: #ffffff;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: #333;
             margin-bottom: 30px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .countdown {
+        .scrolling-gallery {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .scroll-row {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0 auto;
-            max-width: 800px;
+            gap: 20px;
+            padding: 20px 0;
         }
 
-        .countdown-item {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #d4af37;
-            border-radius: 15px;
+        .scroll-right {
+            animation: scrollRight 20s linear infinite;
+        }
+
+        .scroll-left {
+            animation: scrollLeft 20s linear infinite;
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0%); }
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .gallery-item {
+            flex: 0 0 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .event-photos-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .event-photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             padding: 20px;
-            min-width: 120px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .countdown-number {
-            font-size: 3rem;
+        .event-photo-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .event-photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .event-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .description-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(255, 247, 178, 0.549), rgba(255, 255, 255, 0.9));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poetic-text {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .poetic-text::before,
+        .poetic-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: #d4af37;
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .poetic-text::before {
+            top: -20px;
+            left: -20px;
+        }
+
+        .poetic-text::after {
+            bottom: -40px;
+            right: -20px;
+        }
+
+        .highlight-word {
             color: #d4af37;
             font-weight: bold;
-            margin-bottom: 10px;
-            font-family: 'Cinzel Decorative', cursive;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: wordAppear 1s forwards;
+            text-shadow: 0 0 0px rgba(212, 175, 55, 0);
         }
 
-        .countdown-label {
-            color: #f1cf52;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .countdown-item:hover {
-            animation: pulse 1s infinite;
-            border-color:#fff;
-        }
-
-        @keyframes fadeInUp {
+        @keyframes wordAppear {
             0% {
+                transform: translateY(20px) scale(0.8);
+                opacity: 0;
+                text-shadow: 0 0 0px rgba(212, 175, 55, 0);
+            }
+            50% {
+                opacity: 0.7;
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+                text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+            }
+        }
+
+        @keyframes fadeUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .timeline-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(255, 247, 178, 0.9), rgba(255, 255, 255, 0.9));
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            perspective: 1000;
+            -webkit-perspective: 1000;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-title {
+            text-align: center;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #d4af37;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            width: 50%;
+            padding: 20px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px) translateZ(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+            animation: timelineItemAppear 0.8s forwards;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            transform: translateX(100px);
+        }
+
+        .timeline-item:nth-child(even).visible {
+            transform: translateX(0);
+            animation: timelineItemAppearRight 0.8s forwards;
+        }
+
+        @keyframes timelineItemAppear {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) translateZ(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) translateZ(0);
+            }
+        }
+
+        @keyframes timelineItemAppearRight {
+            0% {
+                opacity: 0;
+                transform: translateX(30px) translateZ(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) translateZ(0);
+            }
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+            transform: translateX(-50%);
+            animation: timelineLineGrow 2s ease-out forwards;
+        }
+
+        @keyframes timelineLineGrow {
+            from {
+                transform: translateX(-50%) scaleY(0);
+            }
+            to {
+                transform: translateX(-50%) scaleY(1);
+            }
+        }
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateZ(0);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: #d4af37;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #d4af37;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover::before {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+        }
+
+        .timeline-time {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            transform: translateZ(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover .timeline-time {
+            transform: translateZ(30px);
+        }
+
+        .register-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b38f1d);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(30px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .register-btn:hover {
+            background: linear-gradient(135deg, #b38f1d, #d4af37);
+            transform: translateZ(40px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+        }
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .event-poster-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 15px;
+        }
+
+        .timeline-time {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-event {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .timeline-venue {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .register-btn {
+            display: inline-block;
+            background: #d4af37;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .register-btn:hover {
+            background: #b38f1d;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(212, 175, 55, 0.9);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Event Poster Modal */
+        .event-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .event-popup-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .event-popup.active .event-popup-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .event-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #d4af37;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .event-popup-close:hover {
+            color: #b38f1d;
+        }
+
+        .event-popup-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .event-popup-time {
+            font-family: 'Cinzel Decorative', cursive;
+            color: #d4af37;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .event-popup-name {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .event-popup-venue {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .poster-gallery {
+            width: 100%;
+            max-width: 1400px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            position: relative;
+        }
+
+        .poster-gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .poster-container {
+            display: inline-flex;
+            gap: 20px;
+            padding: 0 20px;
+            animation: floatPosters 1s ease-out;
+        }
+
+        .event-poster {
+            width: 300px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .event-poster:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-poster img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+        }
+
+        .poster-info {
+            padding: 15px;
+            text-align: center;
+            white-space: normal;
+        }
+
+        .poster-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .poster-details {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @keyframes floatPosters {
+            from {
                 opacity: 0;
                 transform: translateY(20px);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @media (max-width: 768px) {
-            .countdown {
-                flex-direction: column;
-            }
-            .title {
-                font-size: 5rem;
-            }
+        .scroll-hint {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: rgba(255, 255, 255, 0.232);
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
         }
-        
-        .image-title {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+
+        .scroll-hint:hover {
+            opacity: 1;
+        }
+
+        .scroll-left {
+            left: 10px;
+        }
+
+        .scroll-right {
+            right: 10px;
+        }
+
+
+
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 30px 0;
             text-align: center;
+            margin-top: 50px;
+            position: relative;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html">HOME</a>
-        <a href="events.html">EVENTS</a>
-        <a href="about.html">ABOUT US</a>
-        <a href="contact.html">CONTACT</a>
-    </div>
-
     <div class="main">
-        <div class="title">VENCER</div>
-        <div class="tagline">SPIRITUL INGINERILOR</div>
-        <div class="subtitle">2025</div>
-        
-        <div class="countdown-section">
-            <h2 class="countdown-title">Time Until VENCER</h2>
-            <div class="countdown">
+        <div class="">
+            <img id="backgroundImage" src="WhatsApp Image 2025-03-21 at 11.30.44_c509a5a7.jpg" alt="">
+        </div>
+        <div class="text-container">
+            <div class="text-background">
+                <img id="textBackgroundImage" src="WhatsApp Image 2025-03-21 at 12.52.33_2b8580bd.jpg" alt="">
+            </div>
+            <div class="title-group">
+                <div class="title">VENCER</div>
+                <div class="subtitle">2025</div>
+                <div class="tagline">SPIRITUL INGINERILOR</div>
+            </div>
+            <div class="countdown-title">TIME UNTIL VENCER</div>
+            <div class="countdown-section">
                 <div class="countdown-item">
-                    <div id="days" class="countdown-number">00</div>
-                    <div class="countdown-label">Days</div>
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">DAYS</div>
                 </div>
                 <div class="countdown-item">
-                    <div id="hours" class="countdown-number">00</div>
-                    <div class="countdown-label">Hours</div>
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">HOURS</div>
                 </div>
                 <div class="countdown-item">
-                    <div id="minutes" class="countdown-number">00</div>
-                    <div class="countdown-label">Minutes</div>
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">MINUTES</div>
                 </div>
                 <div class="countdown-item">
-                    <div id="seconds" class="countdown-number">00</div>
-                    <div class="countdown-label">Seconds</div>
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">SECONDS</div>
                 </div>
             </div>
         </div>
     </div>
     
-    <div class="content-section">
-        <h2 class="image-title">PREVIOUS  YEAR  HIGHLIGHTS</h2>
-        <div class="floating-images">
-            <div class="image-row">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.47_f3de384d.jpg" alt="Tech">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.48_8ab412c9.jpg" alt="Innovation">
-                <img class="float-left" src="images/pre/IMG_6171.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_0ef1ce69.jpg" alt="Tech">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_61b34aac.jpg" alt="Innovation">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_97f125dd.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.50_f1bdb45d.jpg" alt="Tech">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_2e9e1ee3.jpg" alt="Innovation">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_9ca29f47.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6284.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6338.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6347.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6349.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6350.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6352.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6353.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6354.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6360.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6375.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6390.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6488.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6489.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6780.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/IMG_6788.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.17_9cf37022.jpg" alt="Future">
-                <img class="float-left" src="images/Firefly.png" alt="Digital">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.18_f3d8e119.jpg" alt="Engineering">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.47_f3de384d.jpg" alt="Tech">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.48_8ab412c9.jpg" alt="Innovation">
-                <img class="float-left" src="images/Firefly.png" alt="Firefly">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_0ef1ce69.jpg" alt="Tech">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_61b34aac.jpg" alt="Innovation">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_97f125dd.jpg" alt="Firefly">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.50_f1bdb45d.jpg" alt="Tech">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_2e9e1ee3.jpg" alt="Innovation">
-                <img class="float-left" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_9ca29f47.jpg" alt="Firefly">
-            </div>
-            <div class="image-row">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
-                <img class="float-right" src="images/pre/IMG_6604.jpg" alt="Tech">
-                <img class="float-right" src="images/pre/IMG_6614.jpg" alt="Innovation">
-                <img class="float-right" src="images/pre/IMG_6636.jpg" alt="Firefly">
-                <img class="float-right" src="images/pre/IMG_6641.jpg" alt="Firefly">
-                <img class="float-right" src="images/pre/IMG_6687.jpg" alt="Tech">
-                <img class="float-right" src="images/pre/IMG_6697.jpg" alt="Innovation">
-                <img class="float-right" src="images/pre/IMG_6780.jpg" alt="Firefly">
-                <img class="float-right" src="images/pre/IMG_6788.jpg" alt="Firefly">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3024e5f5.jpg" alt="Engineering">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.52_3bee6344.jpg" alt="Digital">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2022.01.21_cc80b625.jpg" alt="Future">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.17_9cf37022.jpg" alt="Future">
-                <img class="float-right" src="images/Firefly.png" alt="Digital">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.46.18_f3d8e119.jpg" alt="Engineering">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.47_f3de384d.jpg" alt="Tech">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.48_8ab412c9.jpg" alt="Innovation">
-                <img class="float-right" src="images/Firefly.png" alt="Firefly">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_0ef1ce69.jpg" alt="Tech">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_61b34aac.jpg" alt="Innovation">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.49_97f125dd.jpg" alt="Firefly">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.50_f1bdb45d.jpg" alt="Tech">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_2e9e1ee3.jpg" alt="Innovation">
-                <img class="float-right" src="images/pre/WhatsApp%20Image%202025-03-26%20at%2021.31.51_9ca29f47.jpg" alt="Firefly">
+    <div class="navbar">
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="#" onclick="openEventsWindow(); return false;">EVENTS</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+
+    <div class="description-section">
+        <p class="poetic-text">
+            <span class="highlight-word" style="animation-delay: 0.1s">VENCER</span>, a vibrant fest of delight,<br>
+            where <span class="highlight-word" style="animation-delay: 0.2s">tech</span> meets <span class="highlight-word" style="animation-delay: 0.3s">culture</span>, day and night.<br>
+            At <span class="highlight-word" style="animation-delay: 0.4s">Angadi Institute</span>, talents soar,<br>
+            with <span class="highlight-word" style="animation-delay: 0.5s">events</span> galore, come explore!<br>
+            From <span class="highlight-word" style="animation-delay: 0.6s">innovations</span> bright to cultural sight,<br>
+            VENCER ignites <span class="highlight-word" style="animation-delay: 0.7s">passions</span> in its flight.
+        </p>
+    </div>
+
+    <div class="timeline-section">
+        <div class="timeline-container">
+            <h2 class="timeline-title">Event Schedule</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/FF.jpg" alt="FREE FIRE MAX" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">FREE FIRE MAX</div>
+                        <div class="timeline-venue">AI & DS</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/CQ.jpg" alt="CODEQUEST 4.0" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">CODEQUEST</div>
+                        <div class="timeline-venue">AI & DS</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/BG.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">BATTLE GROUNDS MOBILE</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/HSR.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">HACKSPHERE</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/TSH.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">TECH SCAVENGER HUNT</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/SLS.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">SWARA LAHARI SINGING</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/RRD.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">RHYTHEMIC REVERENCE</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/LRI.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">STONE SMASH</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/FOOTB.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">GOAL RUSH</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/NN.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">NET NINJAS</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/DS.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">DHEEMI SAWARI</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/KC.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">KAKSHA CRICKET</div>
+                        <div class="timeline-venue">CSE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/CV1.jpg" alt="CODE ELEVATE" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">GRIDLOCK QUEST</div>
+                        <div class="timeline-venue">CIVIL</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/CV2.jpg" alt="Quiz Competition" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">STACK HEAVEN</div>
+                        <div class="timeline-venue">CIVIL</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/CV3.jpg" alt="Short Film Festival" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">PICTOGRAM X</div>
+                        <div class="timeline-venue">CIVIL</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/CV4.jpg" alt="Stand-up Comedy" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">TERRA PASS</div>
+                        <div class="timeline-venue">CIVIL</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC1.jpg" alt="DJ Night" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">CIRCUIT CASCADERS</div>
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC2.jpg" alt="Laser Show" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">CHAT TRAVELLER</div>
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC3.jpg" alt="Band Performance" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">WHISPERS OF THEVAULT</div> 
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC4.jpg" alt="Fire Show" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">SPIN TO WIN</div>
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC5.jpg" alt="Midnight Gaming" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">ARCHITECT GAMBIT</div>
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC6.jpg" alt="Movie Marathon" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">VISUAL CHRONICAL</div>
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC7.jpg" alt="Night Photography" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">HIT & HYPE</div>
+                        <div class="timeline-venue">E&C</div>
+                       
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EC8.jpg" alt="Night Photography" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">BIRD IN TROUBLE</div>
+                        <div class="timeline-venue">E&C</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EEE1.jpg" alt="Night Photography" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">CARROM</div>
+                        <div class="timeline-venue">EEE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EEE2.jpg" alt="Night Photography" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">RANGOSTAV</div>
+                        <div class="timeline-venue">EEE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EEE3.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">TECHXPLORE</div>
+                        <div class="timeline-venue">EEE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EEE4.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">BUZZ WIRE</div>
+                        <div class="timeline-venue">EEE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/EEE5.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">TUG O’ WAR</div>
+                        <div class="timeline-venue">EEE</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ME1.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">Engineering Insights</div>
+                        <div class="timeline-venue">ME</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ME2.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">Scholarly Posters</div>
+                        <div class="timeline-venue">ME</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ME3.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">Digital Prototyping</div>
+                        <div class="timeline-venue">ME</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ME4.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">Hydro Launch Spectacle</div>
+                        <div class="timeline-venue">ME</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ME5.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">Quick Pitch Cricket</div>
+                        <div class="timeline-venue">ME</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ME6.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">Hydro Launch Spectacle</div>
+                        <div class="timeline-venue">ME</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ra1.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">ROBO-RUSH</div>
+                        <div class="timeline-venue">R&A</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ra2.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">CRIMSON CLUE</div>
+                        <div class="timeline-venue">R&A</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="images/ra3.jpg" alt="Engineering Insights" class="event-poster-img">
+                        <div class="timeline-time">APRIL 8th & 9th</div>
+                        <div class="timeline-event">ELIMINATOR X</div>
+                        <div class="timeline-venue">R&A</div>
+                    </div>
+                </div>
+            
             </div>
         </div>
     </div>
 
+   <!--<div class="gallery-section">
+        
+        <div class="scrolling-gallery">
+            <div class="scroll-row scroll-right">
+                 First row of photos
+                <div class="gallery-item"><img src="images/BB.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 1</div></div>
+                <div class="gallery-item"><img src="images/BG.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 2</div></div>
+                <div class="gallery-item"><img src="images/BT.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 3</div></div>
+                <div class="gallery-item"><img src="images/CE.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 4</div></div>
+                <div class="gallery-item"><img src="images/CM.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 5</div></div>
+                <div class="gallery-item"><img src="images/CQ.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 6</div></div>
+                <div class="gallery-item"><img src="images/CW.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 7</div></div>
+                <div class="gallery-item"><img src="images/DS.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 8</div></div>
+                <div class="gallery-item"><img src="images/FF.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 9</div></div>
+                <div class="gallery-item"><img src="images/FOOTB.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 10</div></div>
+            </div
+            <div class="scroll-row scroll-left">
+                Second row of photos 
+                <div class="gallery-item"><img src="images/HSR.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 11</div></div>
+                <div class="gallery-item"><img src="images/KC.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 12</div></div>
+                <div class="gallery-item"><img src="images/KK.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 13</div></div>
+                <div class="gallery-item"><img src="images/LRI.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 14</div></div>
+                <div class="gallery-item"><img src="images/NN.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 15</div></div>
+                <div class="gallery-item"><img src="images/RRD.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 16</div></div>
+                <div class="gallery-item"><img src="images/SLS.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 17</div></div>
+                <div class="gallery-item"><img src="images/TSH.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 18</div></div>
+                <div class="gallery-item"><img src="images/UI.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 19</div></div>
+                <div class="gallery-item"><img src="images/Y.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 20</div></div>
+            </div>
+            <div class="scroll-row scroll-right">
+                 Third row of photos
+                <div class="gallery-item"><img src="images/Z.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 21</div></div>
+                <div class="gallery-item"><img src="images/bgmi.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 22</div></div>
+                <div class="gallery-item"><img src="images/collage.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 23</div></div>
+                <div class="gallery-item"><img src="images/cv.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 24</div></div>
+                <div class="gallery-item"><img src="images/freefire.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 25</div></div>
+                <div class="gallery-item"><img src="images/AIDS.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 26</div></div>
+                <div class="gallery-item"><img src="images/Tajmahal.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 27</div></div>
+                <div class="gallery-item"><img src="WhatsApp Image 2025-03-21 at 11.30.44_c509a5a7.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 28</div></div>
+                <div class="gallery-item"><img src="WhatsApp Image 2025-03-21 at 12.52.33_2b8580bd.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 29</div></div>
+                <div class="gallery-item"><img src="Flux_Dev_An_elegant_ID_card_for_a_globalthemed_event_features__2.jpeg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 30</div></div>
+            </div>
+            <div class="scroll-row scroll-left">
+                <!-- Fourth row of photos with duplicates for continuous flow --
+                <div class="gallery-item"><img src="images/BB.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 31</div></div>
+                <div class="gallery-item"><img src="images/BG.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 32</div></div>
+                <div class="gallery-item"><img src="images/BT.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 33</div></div>
+                <div class="gallery-item"><img src="images/CE.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 34</div></div>
+                <div class="gallery-item"><img src="images/CM.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 35</div></div>
+                <div class="gallery-item"><img src="images/CQ.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 36</div></div>
+                <div class="gallery-item"><img src="images/CW.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 37</div></div>
+                <div class="gallery-item"><img src="images/DS.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 38</div></div>
+                <div class="gallery-item"><img src="images/FF.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 39</div></div>
+                <div class="gallery-item"><img src="images/FOOTB.jpg" alt="Event Photo"><div class="gallery-caption">Event 2024 - 40</div></div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="event-photos-modal" id="eventPhotosModal">
+        <div class="back-arrow" onclick="closeEventPhotos()">←</div>
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="eventModalTitle" class="gallery-title"></h2>
+            <div class="event-photos-grid"></div>
+        </div>
+    </div>
+
+   
+
+    <script>
+        // Load saved background images from localStorage
+        window.addEventListener('load', function() {
+            const backgroundImage = document.getElementById('backgroundImage');
+            const textBackgroundImage = document.getElementById('textBackgroundImage');
+            
+            const savedBackground = localStorage.getItem('backgroundImage');
+            const savedTextBackground = localStorage.getItem('textBackgroundImage');
+            
+            if (savedBackground) {
+                backgroundImage.src = savedBackground;
+            }
+            
+            if (savedTextBackground) {
+                textBackgroundImage.src = savedTextBackground;
+            }
+        });
+
+        // Timeline scroll animation
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+            
+            // Adjust threshold based on screen size for better mobile experience
+            const threshold = window.innerWidth <= 480 ? 0.2 : window.innerWidth <= 768 ? 0.25 : 0.3;
+            
+            return (
+                rect.top <= (windowHeight * (1 - threshold)) &&
+                rect.bottom >= (windowHeight * threshold) &&
+                rect.left >= -50 &&
+                rect.right <= (windowWidth + 50)
+            );
+        }
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            requestAnimationFrame(() => {
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const threshold = window.innerWidth <= 480 ? 0.15 : 0.2;
+                    
+                    if (rect.top <= window.innerHeight * (1 - threshold) && rect.bottom >= window.innerHeight * threshold) {
+                        if (!item.classList.contains('visible')) {
+                            item.classList.add('visible');
+                        }
+                    }
+                });
+            });
+        }
+
+        let lastScrollTime = 0;
+        const scrollThrottle = 16; // ~60fps
+
+        window.addEventListener('scroll', () => {
+            const now = Date.now();
+            if (now - lastScrollTime >= scrollThrottle) {
+                handleScroll();
+                lastScrollTime = now;
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', handleScroll, { passive: true });
+        window.addEventListener('resize', handleScroll, { passive: true });
+        window.addEventListener('load', handleScroll);
+
+        // Event Modal and Poster Gallery
+        const modal = document.querySelector('.event-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const posterContainer = document.querySelector('.poster-container');
+        const scrollLeft = document.querySelector('.scroll-left');
+        const scrollRight = document.querySelector('.scroll-right');
+
+        // Generate posters for each event
+        function generateEventPosters(eventName) {
+            const posterSets = document.querySelectorAll('.event-poster-set');
+            const posterContent = Array.from({length: 40}, (_, i) => `
+                <div class="event-poster">
+                    <img src="WhatsApp Image 2025-03-21 at ${Math.random() > 0.5 ? '11.30.44_c509a5a7' : '12.52.33_2b8580bd'}.jpg" alt="${eventName} Poster">
+                    <div class="poster-info">
+                        <div class="poster-title">${eventName} #${i + 1}</div>
+                        
+                    </div>
+                </div>
+            `).join('');
+
+            // Set content for both original and duplicate sets
+            posterSets.forEach(set => set.innerHTML = posterContent);
+        }
+
+        // Add click event to timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const content = item.querySelector('.timeline-content');
+                const eventName = content.querySelector('.timeline-event').textContent;
+                const eventTime = content.querySelector('.timeline-time').textContent;
+                const eventVenue = content.querySelector('.timeline-venue').textContent;
+                const eventImg = content.querySelector('.event-poster-img').src;
+
+                const popup = document.createElement('div');
+                popup.className = 'event-popup';
+                popup.innerHTML = `
+                    <div class="event-popup-content">
+                        <span class="event-popup-close">&times;</span>
+                        <img src="${eventImg}" alt="${eventName}" class="event-popup-img">
+                        <div class="event-popup-time">${eventTime}</div>
+                        <div class="event-popup-name">${eventName}</div>
+                        <div class="event-popup-venue">${eventVenue}</div>
+                    </div>
+                `;
+
+                document.body.appendChild(popup);
+                popup.style.display = 'flex';
+                setTimeout(() => popup.classList.add('active'), 10);
+
+                const closeBtn = popup.querySelector('.event-popup-close');
+                closeBtn.addEventListener('click', () => {
+                    popup.classList.remove('active');
+                    setTimeout(() => {
+                        popup.remove();
+                    }, 300);
+                });
+
+                popup.addEventListener('click', (e) => {
+                    if (e.target === popup) {
+                        popup.classList.remove('active');
+                        setTimeout(() => {
+                            popup.remove();
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Scroll gallery
+        scrollLeft.addEventListener('click', () => {
+            posterContainer.scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        });
+
+        scrollRight.addEventListener('click', () => {
+            posterContainer.scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Gallery item click events
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const eventType = item.getAttribute('data-event-type');
+                const modal = document.getElementById('eventPhotosModal');
+                const modalTitle = document.getElementById('eventModalTitle');
+                const photosGrid = modal.querySelector('.event-photos-grid');
+                
+                // Set modal title based on event type
+                const titles = {
+                    technical: 'Technical Events Gallery',
+                    cultural: 'Cultural Events Gallery',
+                    esports: 'E-Sports Events Gallery',
+                    innovation: 'Innovation Summit Gallery'
+                };
+                modalTitle.textContent = titles[eventType];
+                
+                // Clear existing photos
+                photosGrid.innerHTML = '';
+                
+                // Add event-specific photos
+                const images = [
+                    'WhatsApp Image 2025-03-21 at 11.30.44_c509a5a7',
+                    'WhatsApp Image 2025-03-21 at 12.52.33_2b8580bd',
+                    'Flux_Dev_An_elegant_ID_card_for_a_globalthemed_event_features__2.jpeg'
+                ];
+                
+                // Generate 9 photo items for the grid
+                for(let i = 0; i < 9; i++) {
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'event-photo-item';
+                    photoItem.innerHTML = `<img src="${images[i % images.length]}" alt="${titles[eventType]} Photo ${i + 1}">`;
+                    photosGrid.appendChild(photoItem);
+                }
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close event photos modal
+        document.querySelector('#eventPhotosModal .close-modal').addEventListener('click', () => {
+            document.getElementById('eventPhotosModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        document.getElementById('eventPhotosModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('eventPhotosModal')) {
+                document.getElementById('eventPhotosModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Countdown Timer
+        const eventDate = new Date('2025-04-08T09:10:00').getTime();
+
+        // Update countdown every second
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            // Calculate days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update the HTML
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.countdown').innerHTML = "<h2 style='color: #d4af37; font-size: 3rem;'>Event Has Started!</h2>";
+            }
+        }, 1000);
+
+        // Handle scroll event for background transparency
+        window.addEventListener('scroll', function() {
+            const main = document.querySelector('.main');
+            if (window.scrollY > 100) {
+                main.classList.add('scrolled');
+            } else {
+                main.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <div class="events-overlay" id="eventsOverlay"></div>
+    <div class="floating-events-window" id="eventsWindow">
+    <span class="close-events" onclick="closeEventsWindow()">&times;</span>
+    <h2 style="color: #fff;""gallery-title">Department Events</h2>
+    <div class="events-grid">
+        <div class="event-item">
+            <div class="event-icon">🤖</div>
+            <div class="event-name">AI&DS</div>
+            <a href="ai_ds_events.html" class="event-button">View Events</a>
+        </div>
+        
+        <div class="event-item">
+            <div class="event-icon">💻</div>
+            <div class="event-name">CSE</div>
+            <a href="cse_events.html" class="event-button">View Events</a>
+        </div>
+        
+        <div class="event-item">
+            <div class="event-icon">🏗️</div>
+            <div class="event-name">CIVIL</div>
+            <a href="civil_events.html" class="event-button">View Events</a>
+        </div>
+
+        <div class="event-item">
+            <div class="event-icon">📡</div>
+            <div class="event-name">E&C</div>
+            <a href="enc_events.html" class="event-button">View Events</a>
+        </div>
+
+        <div class="event-item">
+            <div class="event-icon">⚡</div>
+            <div class="event-name">EEE</div>
+            <a href="eee_events.html" class="event-button">View Events</a>
+        </div>
+
+        <div class="event-item">
+            <div class="event-icon">⚙️</div>
+            <div class="event-name">ME</div>
+            <a href="me_events.html" class="event-button">View Events</a>
+        </div>
+
+        <div class="event-item">
+            <div class="event-icon">🤖</div>
+            <div class="event-name">R&A</div>
+            <a href="ra_events.html" class="event-button">View Events</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function openEventsWindow() {
+    document.getElementById('eventsOverlay').classList.add('visible');
+    document.getElementById('eventsWindow').classList.add('visible');
+}
+
+function closeEventsWindow() {
+    document.getElementById('eventsOverlay').classList.remove('visible');
+    document.getElementById('eventsWindow').classList.remove('visible');
+}
+
+// Add click event to Events link in navbar
+document.addEventListener('DOMContentLoaded', function() {
+    const eventsLink = document.querySelector('a[href="events.html"]');
+    if (eventsLink) {
+        eventsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openEventsWindow();
+        });
+    }
+
+    // Close window when clicking overlay
+    document.getElementById('eventsOverlay').addEventListener('click', closeEventsWindow);
+    
+    // Check if URL has openEvents parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('openEvents')) {
+        openEventsWindow();
+    }
+});
+</script>
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 VENCER. All rights reserved.</p>
@@ -376,36 +1655,50 @@
             <p>Contact: <a href="mailto:vencer.aitm@gmail.com">vencer.aitm@gmail.com</a></p>
         </div>
     </footer>
-    <script>
-        function updateCountdown() {
-            const eventDate = new Date('2025-04-08T09:00:00+05:30').getTime();
-            
-            function update() {
-                const now = new Date().getTime();
-                const distance = eventDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.querySelector('.countdown-title').textContent = 'VENCER 2025 IS HERE!';
-                    document.querySelectorAll('.countdown-number').forEach(el => el.textContent = '00');
-                }
-            }
-
-            update();
-            const timer = setInterval(update, 1000);
-        }
-
-        updateCountdown();
-    </script>
+    <script src="countdown.js"></script>
 </body>
 </html>
+
+
+<style>
+.title-group {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: titleGroupAnimation 1.5s ease forwards;
+}
+
+@keyframes titleGroupAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title, .subtitle, .tagline {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+}
+
+.tagline {
+    margin-top: 10px;
+    font-family: 'Cinzel Decorative', cursive;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+</style>
+
+

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH SCAVENGER HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Tajmahal.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border: 2px solid #d4af37;
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            color: #fff;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .register-button:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .register-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">TECH SCAVENGER HUNT</h1>
+            <p class="section-content">Showcase your web development expertise.</p>
+        </div>
+
+        <img src="images/TSH.jpg" alt="Web Wizards Event Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p class="section-content">Fees:50 per head (200 per team)</p>
+            <p class="section-content">Event Overview: The competition consists of two rounds, Tag Team Rule and System Glitch.</p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>Team Size: Each team can have 2-4 participants.</li>
+                <li>Fair Play: No use of the internet, external help, or unfair means.</li>
+                <li>Time Limits: Each round must be completed within the given duration</li>
+                <li>Judging: Judges' decisions are final in case of disputes.</li>
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">ROUNDS:</h2>
+            <ul class="rules-list">
+                <h2 class="section-title">Round 1: Tech Trivia & Riddles (Qualifier Round)</h2>
+               
+                <li>Format: Written</li>
+                
+                <li>Duration: 20-30 minutes</li>
+                
+                <li>Objective: Test participants' basic tech knowledge and logical thinking.</li>
+                
+                <li>10-15 MCQs (Topics: Coding Basics, Famous Tech Innovations, Computer
+                    Hardware, Software, Internet, etc.) </li>
+                
+                <li>5-7 Tech Riddles (Example: “I have keys but open no locks, I have a space but
+                    no room. What am I?” – Answer: A Keyboard)</li>
+
+                <li>Elimination: Top 50% of teams qualify for Round 2</li> 
+                
+                <h2 class="section-title">Round 2: QR Code & Digital Clues (Semi-Final)</h2>
+                
+                <li>Format: On-campus scavenger hunt</li>
+                <li>Duration: 45-60 minutes</li>
+                <li>Objective: Solve puzzles to find hidden QR codes and progress.</li>
+                <li>Judging: Judges' decisions are final in case of disputes.</li>
+                <li>Teams receive their first clue (Example: “Find where codes are compiled and
+                    errors get fixed” – Answer: Computer Lab).</li>
+
+                <li>At each location, a QR code is hidden. Scanning the QR reveals the next tech
+                    puzzle. o Examples of puzzles:</li>
+                
+                <li>Hardware Puzzle: Identify a given computer component from a scrambled image.</li>
+                
+                <li>Software-Based Clue: Solve a riddle about an operating system or famous software</li>
+
+                <li> Algorithm Clue: A simple logic-based flowchart puzzle.</li>
+                
+                <li>Elimination: Top 5-8 teams qualify for the Final Round.</li>
+
+                <h2 class="section-title">Round 3: The Ultimate Tech Challenge (Final Round)</h2>
+
+                <li>Format: Hands-on Tech Challenge</li>
+                
+                <li>Duration: 60-90 minutes</li>
+                
+                <li>Objective: A mix of practical coding, hardware, and logic-based problem-solving</li>
+
+                <li>Tasks (Pick based on facilities available): </li>
+                
+                <li>1. Debugging Challenge – Identify and fix errors in a simple C/Python/Java code</li>
+
+                <li>2. Navigating to a website and solving a cipher.</li>
+                
+                <li>3. Tech Assembly Task – Assemble computer parts (RAM, CPU, HDD, GPU) in the
+                    correct order</li>
+                
+                <li>4. Final Puzzle – A final tech-based riddle leading to the treasure/prize location.</li>
+                    
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Prize Pool</h2>
+            <p class="section-content">
+                🏆 Exclusive Prizes + Certificates<br>
+                🏆 The first team to successfully complete all final challenges wins<br>
+                🏆 Prizes: 1st, 2nd, and 3rd places based on performance.<br>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Mr. Pranav</h3>
+                    <p>📞 +91 8748960515</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Mr.Saif.</h3>
+                    <p>📞 +91 8951553665</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScKJStPGL5-gUFwui1O-p-x8VjHcFtGX9m_c9_J_QUO76-Bmg/viewform?usp=dialog" class="register-button">Register Now</a>
+            <a href="cse_events.html" class="register-button">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>

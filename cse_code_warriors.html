@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HACK SPHERE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: url('images/Tajmahal.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Cinzel Decorative', cursive;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d4af37;
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .event-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .event-poster {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 15px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            border: 2px solid #d4af37;
+        }
+
+        .event-section {
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            color: #fff;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '•';
+            color: #d4af37;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .register-button {
+            background: #d4af37;
+            color: #000;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .register-button:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .register-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="events.html">EVENTS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+
+    <div class="content-container">
+        <div class="event-header">
+            <h1 class="event-title">HACKSPHERE</h1>
+            <p class="section-content">5-hours Hackthon</p>
+        </div>
+
+        <img src="images/HSR.jpg" alt="Code Warriors Event Poster" class="event-poster">
+
+        <div class="event-section">
+            <h2 class="section-title">Event Description</h2>
+            <p class="section-content">
+                The competition consists of structured 2–rounds, testing your
+                skill in coding as well as development.
+            </p>
+        </div>
+        <div class="event-section">
+            <h2 class="section-title">ROUNDS</h2>
+            <ul class="rules-list">
+                <h2 class="section-title">Round 1: Quiz (Duration: 1 Hour)</h2>
+                
+                <li>Format: MCQs and problem-solving questions</li>
+                
+                <li>Participants: Only 2 members from each team can participate.</li>
+                
+                <li>Scoring: Teams with the highest scores will advance to the second round.</li>
+                
+                <li>Elimination: Only the top 50% of teams will proceed to Round 2.</li>
+                
+                <li>After Round 1: The selected teams will receive their problem statement.</li>
+
+                <h2 class="section-title">Round 2: Designing & Project Building (Duration: 4 Hours)</h2>
+                
+                <li>Participants: The entire team (1-4 members) can participate.</li>
+                
+                <li>Problem Statement: Given after Round 1 to all qualifying teams</li>
+                
+                <li>Tasks:</li>
+                
+                <li>1. Understanding the Problem Statement–Brainstorming and planning.</li>
+                
+                <li>2. UI/UX Design – Creating wireframees or prototypes.</li>
+                
+                <li>3. Solution Strategy–Defining the approach and feasibility.</li>
+                
+                <li>4. Project Implementation–Developing a working prototype or MVP
+                       (Minimum Viable Product).</li>
+                
+                <li>• Submission: Teams must submit a brief presentation/demo explaining their
+                    solution.</li>
+                
+                <li>1. Understanding the Problem Statement–Brainstorming and planning.</li>
+                
+                <li>After Round 1: The selected teams will receive their problem statement.</li>
+            </p>
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>1. Creativity & Innovation – Unique and practical solutions</li>
+               
+                <li>2. UI/UX Design – Visual appeal and usability.</li>
+                
+                <li>3. Technical Implementation – Code quality, feasibility, and functionality.</li>
+                
+                <li>Presentation & Problem Solving – How well the team explains their
+                    solution.</li>
+            </p>
+            </ul>
+        </div>
+      
+
+
+           
+        <div class="event-section">
+            <h2 class="section-title">Rules & Guidelines</h2>
+            <ul class="rules-list">
+                <li>Eligibility: Participants must register before the event. Teams can have 1-4 members.</li>
+                
+                <li>Time Limit: The hackathon will run for 5 hours, divided into two rounds.</li>
+                
+                <li>Judging Criteria: Evaluation will be based on accuracy, creativity, feasibility,and implementation. </li>
+                
+                <li>Fair Play: Participants must follow ethical guidelines—no plagiarism or external help.</li>
+                
+                <li>Use of Tools & Resources: Open-source libraries, APIs, and frameworks are  allowed, but AI-generated code must be acknowledged.</li>
+            </ul>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">FEE'S AND INFORMATION</h2>
+            <p class="section-content">
+                   Registration Fees: 400/-
+            </p>
+            <p class="section-content">
+                Win Exclusive prises
+            </p>
+        </div>
+
+        <div class="event-section">
+            <h2 class="section-title">Event Coordinators</h2>
+            <div class="coordinator-info">
+                <div class="coordinator">
+                    <h3>Ms.Jyoti Kumbar</h3>
+                    <p>📞 +91 8431339711</p>
+                </div>
+                <div class="coordinator">
+                    <h3>Ms.Aditya</h3>
+                    <p>📞 +91 9380923239</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsTjMlDHUhkuD_uSwq-7fDxmUZa_aF91y12ZdC1yVPP4FkhQ/viewform?usp=sharing" target="_blank" class="register-button">Register Now</a>
+            <a href="cse_events.html" class="register-button">Back to Events</a>
+        </div>
+    </div>
+</body>
+</html>
